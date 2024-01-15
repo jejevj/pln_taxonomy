@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7538df0a-89e3-466c-8771-0b3159fa34d4/resourceGroups/garudabaru/providers/Microsoft.Web/sites/delacica",
+    "appService.deploySubpath": "."
+}
