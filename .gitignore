@@ -4,7 +4,7 @@
 *.pyc
 __pycache__
 media
-.vscode
+.vscode/settings.json
 
 # Backup files # 
 *.bak 
