@@ -25,7 +25,7 @@
     <link href="{% static 'css/icons.css'%}" rel="stylesheet" >
 
     <!-- Node Waves Css -->
-    <link href="{% static 'libs/node-waves/waves.min.css" rel="stylesheet" >
+    <link href="{% static 'libs/node-waves/waves.min.css'%}" rel="stylesheet" >
 
     <!-- SwiperJS Css -->
     <link rel="stylesheet" href="{% static 'libs/swiper/swiper-bundle.min.css'%}">
@@ -141,10 +141,19 @@
                                     <i class="fe fe-chevron-right side-menu__angle op-8"></i>
                                 </a>
                                 <ul class="slide-menu child1">
-                                    <li class="slide">
-                                        <a href="#statistics" class="side-menu__item">Statistics</a>
-                                    </li>
-                                    <li class="slide has-sub">
+                                  <li class="slide">
+                                      <a href="#statistics" class="side-menu__item">Pembangkit</a>
+                                  </li>
+                                  <li class="slide">
+                                      <a href="#statistics" class="side-menu__item">Transmisi</a>
+                                  </li>
+                                  <li class="slide">
+                                      <a href="#statistics" class="side-menu__item">Distribusi</a>
+                                  </li>
+                                  <li class="slide">
+                                      <a href="#statistics" class="side-menu__item">Niaga</a>
+                                  </li>
+                                    {% comment %} <li class="slide has-sub">
                                         <a href="javascript:void(0);" class="side-menu__item">Level-2
                                             <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                         <ul class="slide-menu child2">
@@ -164,29 +173,8 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> {% endcomment %}
                                 </ul>
-                            </li>
-                            <!-- End::slide -->
-                            <!-- Start::slide -->
-                            <li class="slide">
-                                <a href="#faq" class="side-menu__item">
-                                    <span class="side-menu__label">Faq's</span>
-                                </a>
-                            </li>
-                            <!-- End::slide -->
-                            <!-- Start::slide -->
-                            <li class="slide">
-                                <a href="#testimonials" class="side-menu__item">
-                                    <span class="side-menu__label">Clients</span>
-                                </a>
-                            </li>
-                            <!-- End::slide -->
-                            <!-- Start::slide -->
-                            <li class="slide">
-                                <a href="#contact" class="side-menu__item">
-                                    <span class="side-menu__label">Contact</span>
-                                </a>
                             </li>
                             <!-- End::slide -->
 
@@ -220,15 +208,11 @@
                             <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8">
                                 <div class="py-5 pb-lg-0">
                                     <div class="mb-3">
-                                        <h5 class="fw-semibold text-fixed-white op-9">Manage Your Business</h5>
+                                        <h5 class="fw-semibold text-fixed-white op-9">Knowledge Management System</h5>
                                     </div>
-                                    <p class="landing-banner-heading mb-3">Build Your Dream Project with Valex !</p>
-                                    <div class="fs-16 mb-5 text-fixed-white op-7"> Valex - Now you can use this admin template to design stunning dashboards that will wow your target viewers or users to no end. To create a good and well-structured dashboard, you need to start from scratch with HTML, SCSS, CSS, and JS and with lots of coding, but by using this Valex-Admin template.</div>
-                                    <a href="index.html" class="m-1 btn btn-primary">
-                                        Discover More
-                                        <i class="fe fe-eye ms-2 align-middle"></i>
-                                    </a>
-                                    <a href="index.html" class="m-1 btn btn-info">
+                                    <p class="landing-banner-heading mb-3">Cari Tahu Sekarang!</p>
+                                    <div class="fs-16 mb-5 text-fixed-white op-7">elajari kebutuhan informasi terkait infrastruktur dan ilmu pengetahuan dibidang kelistrikan!</div>
+                                    <a href="#bidang" class="m-1 btn btn-info">
                                         Get Started
                                         <i class="fe fe-arrow-right ms-2 align-middle"></i>
                                     </a>
@@ -241,16 +225,18 @@
             <!-- End:: Section-1 -->
 
             <!-- Start:: Section-2 -->
-            <section class="section section-bg " id="features">
+            <section class="section section-bg " id="bidang">
                 <div class="container text-center position-relative">
                     <p class="fs-12 fw-semibold text-success mb-1">
-                        <span class="landing-section-heading">Features</span>
+                        <span class="landing-section-heading">Bidang</span>
                     </p>
                     <div class="landing-title"></div>
-                    <h3 class="fw-semibold mb-2">Valex Main Features</h3>
+                    <h3 class="fw-semibold mb-2">Knowledge Management System</h3>
                     <div class="row justify-content-center">
                         <div class="col-xl-7">
-                            <p class="text-muted fs-15 mb-5 fw-normal">We are proud to have top class clients and customers,which motivates us to work more on projects.</p>
+                            <p class="text-muted fs-15 mb-5 fw-normal">
+                              Berikut adalah bidang-bidang yang dapat kamu pahami!
+                            </p>
                         </div>
                     </div>
                     <div class="row  g-2 justify-content-center">
