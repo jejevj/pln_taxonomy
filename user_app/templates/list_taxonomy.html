@@ -1,0 +1,139 @@
+{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Taxonomy{% endblock title %} {% block choicejs %}
+<!-- Choices JS -->
+
+<script src="{% static 'libs/choices.js/public/assets/scripts/choices.min.js'%}"></script>
+
+{% endblock choicejs %} {% block choicecss %}
+
+<!-- Simplebar Css -->
+<link href="{% static 'libs/simplebar/simplebar.min.css'%}" rel="stylesheet" />
+
+<!-- Color Picker Css -->
+<link rel="stylesheet" href="{% static 'libs/flatpickr/flatpickr.min.css'%}" />
+<link rel="stylesheet" href="{% static 'libs/@simonwep/pickr/themes/nano.min.css'%}" />
+<!-- Choices Css -->
+<link rel="stylesheet" href="{%static 'libs/choices.js/public/assets/styles/choices.min.css'%}" /> {% endblock choicecss %} {% block content %}
+<!-- Start:: Section-1 -->
+<div class="landing-banner" id="home">
+  <section class="section">
+    <div class="container main-banner-container">
+      <div class="row justify-content-center text-center">
+        <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8">
+          <div class="py-5 pb-lg-0">
+            <div class="mb-3">
+              <h5 class="fw-semibold text-fixed-white op-9">Silahkan Pilih</h5>
+            </div>
+            <p class="landing-banner-heading mb-3">Taxonomy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End:: Section-1 -->
+
+<section class="section section-bg">
+  <div class="container mb-5 mt-2">
+    <!--Start::row-2 -->
+
+    <div class="row g-2 justify-content-center">
+      <div class="col-xl-12">
+        <div class="row text-center justify-content-evenly">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s">
+              <div>
+                <h5 class="fw-bold">Pengembangan visi dan strategi pengelolaan pembangkit</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-2 wow p-4">
+              <div>
+                <h5 class="fw-bold">Pengembangan dan pengelolaan produk</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-3 wow p-4">
+              <div>
+                <h5 class="fw-bold">Pengelolaan dan pemasaran dan penjualan produk</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-4 wow fadeInUp reveal revealleft p-4">
+              <div>
+                <h5 class="fw-bold">Pengelolaan rantai pasok</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-2 justify-content-center">
+      <div class="col-xl-12">
+        <div class="row text-center justify-content-evenly">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s">
+              <div>
+                <h5 class="fw-bold">Penyediaan produk atau jasa kepada pelangganj</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-2 wow p-4">
+              <div>
+                <h5 class="fw-bold">Pengelolaan pelayanan pelanggan</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-3 wow p-4">
+              <div>
+                <h5 class="fw-bold">Pemerolehan, pembangunan dan pengelolaan aset</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+            <div class="card features main-features main-features-4 wow fadeInUp reveal revealleft p-4">
+              <div>
+                <h5 class="fw-bold">Pengelolaan pengoperasian aset 
+                    utilitas</h5>
+                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Taxonomy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End::row-2 -->
+  </div>
+</section>
+{% endblock content %} {% block scriptjs %}
+<!-- Simplebar JS -->
+<script src="{% static 'libs/simplebar/simplebar.min.js'%}"></script>
+<script src="{% static 'js/simplebar.js'%}"></script>
+
+<!-- Color Picker JS -->
+<script src="{% static 'libs/@simonwep/pickr/pickr.es5.min.js'%}"></script>
+
+<!-- Custom-Switcher JS -->
+<script src="{% static 'js/custom-switcher.min.js'%}"></script>
+
+<!-- Prism JS -->
+<script src="{% static 'libs/prismjs/prism.js'%}"></script>
+<script src="{% static 'js/prism-custom.js'%}"></script>
+<!-- Internal Choices JS -->
+<script src="{% static 'js/choices.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'js/custom.js' %}"></script>
+{% endblock scriptjs %}

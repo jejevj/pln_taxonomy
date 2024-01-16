@@ -1,0 +1,74 @@
+{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Bidang{% endblock title %} {% block choicejs %}
+<!-- Choices JS -->
+
+<script src="{% static 'libs/choices.js/public/assets/scripts/choices.min.js'%}"></script>
+
+{% endblock choicejs %} {% block choicecss %}
+
+<!-- Simplebar Css -->
+<link href="{% static 'libs/simplebar/simplebar.min.css'%}" rel="stylesheet" />
+
+<!-- Color Picker Css -->
+<link rel="stylesheet" href="{% static 'libs/flatpickr/flatpickr.min.css'%}" />
+<link rel="stylesheet" href="{% static 'libs/@simonwep/pickr/themes/nano.min.css'%}" />
+<!-- Choices Css -->
+<link rel="stylesheet" href="{%static 'libs/choices.js/public/assets/styles/choices.min.css'%}" /> {% endblock choicecss %} {% block content %}
+<!-- Start:: Section-1 -->
+<div class="landing-banner" id="home">
+  <section class="section">
+    <div class="container main-banner-container">
+      <div class="row justify-content-center text-center">
+        <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8">
+          <div class="py-5 pb-lg-0">
+            <div class="mb-3">
+              <h5 class="fw-semibold text-fixed-white op-9">Silahkan Pilih Rekomendasi</h5>
+            </div>
+            <p class="landing-banner-heading mb-3">Bidang</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- End:: Section-1 -->
+
+<section class="section section-bg">
+  <div class="container mb-5 mt-2">
+    <h4 class="text-center">
+        Pilih Bidang Yang Anda Minati
+    </h4>
+    <form>
+      <div class="card-body">
+        <select class="form-control" name="choices-single-no-search" id="choices-single-no-search">
+            <option value="pembangkit">Pembangkit</option>
+            <option value="transmisi">Transmisi</option>
+            <option value="distribusi">Distribusi</option>
+            <option value="niaga">Niaga</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-center">
+          <a class="btn btn-primary" href="{% url 'rekomendasi-jabatan' %}">Cari Rekomendasi</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock content %} {% block scriptjs %}
+<!-- Simplebar JS -->
+<script src="{% static 'libs/simplebar/simplebar.min.js'%}"></script>
+<script src="{% static 'js/simplebar.js'%}"></script>
+
+<!-- Color Picker JS -->
+<script src="{% static 'libs/@simonwep/pickr/pickr.es5.min.js'%}"></script>
+
+<!-- Custom-Switcher JS -->
+<script src="{% static 'js/custom-switcher.min.js'%}"></script>
+
+<!-- Prism JS -->
+<script src="{% static 'libs/prismjs/prism.js'%}"></script>
+<script src="{% static 'js/prism-custom.js'%}"></script>
+<!-- Internal Choices JS -->
+<script src="{% static 'js/choices.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'js/custom.js' %}"></script>
+{% endblock scriptjs %}
