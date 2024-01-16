@@ -1,0 +1,170 @@
+{% extends "layouts-admin.html" %} {% load static %} {% block title %}Manajemen Taxonomy{% endblock title %} {% block csstambah %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css" />
+{% endblock csstambah %} {% block content %}
+<!-- Start::app-content -->
+<div class="main-content app-content">
+  <div class="container-fluid">
+    <!-- Page Header -->
+    <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb"></div>
+    <!-- End Page Header -->
+    <!-- Start:: row-2 -->
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card custom-card">
+          <div class="card-header">
+            <div class="card-title">Daftar Taxonomy</div>
+          </div>
+          <div class="card-header">
+            <div class="card-title">
+              <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahTaxonomyModal">+ Tambah Taxonomy</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <table id="responsiveDataTable" class="table table-bordered text-nowrap w-100">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Taxonomy</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for taxonomy in taxonomy_list %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ taxonomy.nama_taxonomy }}</td>
+                  <td>
+                    <a class="btn btn-warning btn-edit" data-bs-toggle="modal" data-bs-target="#editTaxonomyModal" data-taxonomy-id="{{ taxonomy.id_taxonomy }}" data-nama-taxonomy="{{ taxonomy.nama_taxonomy }}">
+                      <i class="bi bi-pencil"></i>
+                    </a>
+
+                    <a class="btn btn-danger btn-hapus" data-bs-toggle="modal" data-bs-target="#hapusTaxonomyModal" data-taxonomy-id="{{ taxonomy.id_taxonomy }}">
+                      <i class="bi bi-trash"></i>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End:: row-2 -->
+  </div>
+</div>
+<!-- End::app-content -->
+<!-- Tambah Taxonomy Modal -->
+<div class="modal fade" id="tambahTaxonomyModal" tabindex="-1" aria-labelledby="tambahTaxonomyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahTaxonomyModalLabel">Tambah Taxonomy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form tambah taxonomy -->
+        <form method="post" action="{% url 'tambah_taxonomy' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="namaTaxonomy" class="form-label">Nama Taxonomy:</label>
+            <input type="text" class="form-control" id="namaTaxonomy" name="nama_taxonomy" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Taxonomy Modal -->
+<div class="modal fade" id="editTaxonomyModal" tabindex="-1" aria-labelledby="editTaxonomyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editTaxonomyModalLabel">Edit Taxonomy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form edit taxonomy -->
+        <form method="post" id="editTaxonomyForm" action="{% url 'edit_taxonomy' %}">
+          {% csrf_token %}
+          <input type="hidden" name="taxonomy_id" id="taxonomyId" />
+          <div class="mb-3">
+            <label for="editNamaTaxonomy" class="form-label">Nama Taxonomy:</label>
+            <input type="text" class="form-control" id="editNamaTaxonomy" name="nama_taxonomy" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hapus Taxonomy Modal -->
+<div class="modal fade" id="hapusTaxonomyModal" tabindex="-1" aria-labelledby="hapusTaxonomyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="hapusTaxonomyModalLabel">Hapus Taxonomy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Anda yakin ingin menghapus taxonomy ini?</p>
+        <form method="post" id="hapusTaxonomyForm" action="{% url 'hapus_taxonomy' %}">
+          {% csrf_token %}
+          <input type="hidden" name="taxonomy_id" id="hapusTaxonomyId" />
+          <button type="submit" class="btn btn-danger">Hapus</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %} 
+{% block jstambah %}
+
+<!-- Datatables Cdn -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Internal Datatables JS -->
+<script src="{% static 'js/datatables.js' %}"></script>
+<!-- Script untuk menangani klik tombol edit -->
+<!-- Script untuk menangani klik tombol edit dan hapus -->
+<script>
+  $(document).ready(function () {
+    $("#responsiveDataTable").on("click", ".btn-edit", function () {
+      var taxonomyId = $(this).data("taxonomy-id");
+      var namaTaxonomy = $(this).data("nama-taxonomy");
+
+      // Mengisi nilai pada form edit
+      $("#taxonomyId").val(taxonomyId);
+      $("#editNamaTaxonomy").val(namaTaxonomy);
+
+      // Menampilkan modal edit
+      $("#editTaxonomyModal").modal("show");
+    });
+
+    $("#responsiveDataTable").on("click", ".btn-hapus", function () {
+      var taxonomyId = $(this).data("taxonomy-id");
+
+      // Mengisi nilai pada form hapus
+      $("#hapusTaxonomyId").val(taxonomyId);
+
+      // Menampilkan modal hapus
+      $("#hapusTaxonomyModal").modal("show");
+    });
+  });
+</script>
+
+{% endblock jstambah %}

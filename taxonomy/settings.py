@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'my_app', #Tambah untuk my_app
-    'user_app' #Tambah untuk my_app
+    'user_app', #Tambah untuk my_app
+    'django_quill', #Tambah Quill
 ]
 
 MIDDLEWARE = [

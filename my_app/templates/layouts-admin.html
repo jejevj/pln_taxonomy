@@ -47,6 +47,7 @@
 
     <!-- Jsvector Maps -->
     <link rel="stylesheet" href="{% static 'libs/jsvectormap/css/jsvectormap.min.css' %} " />
+    {% block csstambah %}{% endblock csstambah %}
   </head>
 
   <body>
@@ -232,7 +233,7 @@
 
               <!-- Start::slide -->
               <li class="slide">
-                <a href="{% url 'home' %}" class="side-menu__item">
+                <a href="{% url 'bidang' %}" class="side-menu__item">
                   <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3" />
@@ -247,7 +248,7 @@
 
               <!-- Start::slide -->
               <li class="slide">
-                <a href="{% url 'home' %}" class="side-menu__item">
+                <a href="{% url 'jabatan' %}" class="side-menu__item">
                   <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3" />
@@ -260,7 +261,7 @@
 
               <!-- Start::slide -->
               <li class="slide">
-                <a href="{% url 'home' %}" class="side-menu__item">
+                <a href="{% url 'taxonomy' %}" class="side-menu__item">
                   <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3" />
@@ -273,7 +274,7 @@
 
               <!-- Start::slide -->
               <li class="slide">
-                <a href="{% url 'home' %}" class="side-menu__item">
+                <a href="{% url 'knowledge' %}" class="side-menu__item">
                   <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="side-menu__icon" viewBox="0 0 24 24">
                     <g></g>
                     <g>
@@ -321,6 +322,7 @@
     <!-- Footer End -->
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <!-- Scroll To Top -->
     <div class="scrollToTop">
       <span class="arrow"><i class="las la-angle-double-up"></i></span>
@@ -365,6 +367,7 @@
 
     <!-- Custom-Switcher JS -->
     <script src="{% static 'js/custom-switcher.min.js' %} "></script>
+    {% block jstambah %}{% endblock jstambah %}
     <!-- Custom JS -->
     <script src="{% static 'js/custom.js' %} "></script>
   </body>

@@ -1,0 +1,81 @@
+{% extends "layouts-admin.html" %} {% load static %} {% block title %}Manajemen Knowledge{% endblock title %} {% block csstambah %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css" />
+{% load custom_filters %} {% endblock csstambah %} {% block content %}
+<!-- Start::app-content -->
+<div class="main-content app-content">
+  <div class="container-fluid">
+    <!-- Page Header -->
+    <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb"></div>
+    <!-- End Page Header -->
+    <!-- Start:: row-2 -->
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card custom-card">
+          <div class="card-header">
+            <div class="card-title">Daftar Knowledge</div>
+          </div>
+          <div class="card-header">
+            <div class="card-title"><a class="btn btn-primary" href="{% url 'tambah_knowledge' %}">+ Tambah Knowledge</a></div>
+          </div>
+          <div class="card-body">
+            <table id="responsiveDataTable" class="table table-bordered text-nowrap w-100">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Judul Knowledge</th>
+                  <th>Tipe Knowledge</th>
+                  <th>Gambar Unggulan</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for knowledge in knowledge_list %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ knowledge.judul_knowledge }}</td>
+                  <td>{{ knowledge.tipe_knowledge }}</td>
+                  <td>{% if knowledge.gambar_unggulan %} {% with file_name=knowledge.gambar_unggulan.path|basename %} 
+                    <img src="{% static 'knowledge_images/' %}{{ file_name }}" class="img-fluid" width="100" alt="Gambar Unggulan">
+                    {% endwith %} {% else %} Tidak ada gambar {% endif %}</td>
+                
+                    {% comment %} <a class="btn btn-warning btn-edit" href="#">
+                      <i class="bi bi-pencil"></i>
+                    </a> {% endcomment %}
+                    <td>
+                        <a class="btn btn-danger btn-hapus" href="{% url 'hapus_knowledge' knowledge.id_knowledge %}">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                    
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End:: row-2 -->
+  </div>
+</div>
+<!-- End::app-content -->
+
+{% endblock content %} {% block jstambah %}
+
+<!-- Datatables Cdn -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Internal Datatables JS -->
+<script src="{% static 'js/datatables.js' %}"></script>
+{% endblock jstambah %}
