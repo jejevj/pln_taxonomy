@@ -1,0 +1,371 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PLN Taxonomy - {% block title %}{% endblock title %}</title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template" />
+    <meta name="Author" content="Spruko Technologies Private Limited" />
+    <meta
+      name="keywords"
+      content="admin dashboard template,admin panel html,bootstrap dashboard,admin dashboard,html template,template dashboard html,html css,bootstrap 5 admin template,bootstrap admin template,bootstrap 5 dashboard,admin panel html template,dashboard template bootstrap,admin dashboard html template,bootstrap admin panel,simple html template,admin dashboard bootstrap"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/brand-logos/favicon.ico' %} " type="image/x-icon" />
+
+    <!-- Choices JS -->
+    <script src="{% static 'libs/choices.js/public/assets/scripts/choices.min.js' %} "></script>
+
+    <!-- Main Theme Js -->
+    <script src="{% static 'js/main.js' %} "></script>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="{% static 'libs/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet" />
+
+    <!-- Style Css -->
+    <link href="{% static 'css/styles.min.css' %} " rel="stylesheet" />
+
+    <!-- Icons Css -->
+    <link href="{% static 'css/icons.css' %} " rel="stylesheet" />
+
+    <!-- Node Waves Css -->
+    <link href="{% static 'libs/node-waves/waves.min.css' %} " rel="stylesheet" />
+
+    <!-- Simplebar Css -->
+    <link href="{% static 'libs/simplebar/simplebar.min.css' %} " rel="stylesheet" />
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="{% static 'libs/flatpickr/flatpickr.min.css' %} " />
+    <link rel="stylesheet" href="{% static 'libs/@simonwep/pickr/themes/nano.min.css' %} " />
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="{% static 'libs/choices.js/public/assets/styles/choices.min.css' %} " />
+
+    <!-- Jsvector Maps -->
+    <link rel="stylesheet" href="{% static 'libs/jsvectormap/css/jsvectormap.min.css' %} " />
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <div id="loader">
+      <img src="{% static 'images/media/loader.svg' %} " alt="" />
+    </div>
+    <!-- Loader -->
+
+    <div class="page">
+      <!-- app-header -->
+      <header class="app-header">
+        <!-- Start::main-header-container -->
+        <div class="main-header-container container-fluid">
+          <!-- Start::header-content-left -->
+          <div class="header-content-left">
+            <!-- Start::header-element -->
+            <div class="header-element">
+              <div class="horizontal-logo">
+                <a href="{% url 'home' %}" class="header-logo">
+                  <img src="{% static 'images/brand-logos/desktop-logo.png' %} " alt="logo" class="desktop-logo" />
+                  <img src="{% static 'images/brand-logos/toggle-logo.png' %} " alt="logo" class="toggle-logo" />
+                  <img src="{% static 'images/brand-logos/desktop-white.png' %} " alt="logo" class="desktop-white" />
+                  <img src="{% static 'images/brand-logos/toggle-white.png' %}" alt="logo" class="toggle-white" />
+                </a>
+              </div>
+            </div>
+            <!-- End::header-element -->
+
+            <!-- Start::header-element -->
+            <div class="header-element">
+              <!-- Start::header-link -->
+              <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="javascript:void(0);">
+                <i class="header-icon fe fe-align-left"></i>
+              </a>
+              <!-- End::header-link -->
+            </div>
+            <!-- End::header-element -->
+          </div>
+          <!-- End::header-content-left -->
+
+          <!-- Start::header-content-right -->
+          <div class="header-content-right">
+            <!-- Start::header-element -->
+            <div class="header-element headerProfile-dropdown">
+              <!-- Start::header-link|dropdown-toggle -->
+              <a href="javascript:void(0);" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <img src="{% static 'images/faces/6.jpg' %} " alt="img" width="37" height="37" class="rounded-circle" />
+              </a>
+              <!-- End::header-link|dropdown-toggle -->
+              <ul class="main-header-dropdown dropdown-menu pt-0 header-profile-dropdown dropdown-menu-end main-profile-menu" aria-labelledby="mainHeaderProfile">
+                <li>
+                  <div class="main-header-profile bg-primary menu-header-content text-fixed-white">
+                    <div class="my-auto">
+                      <h6 class="mb-0 lh-1 text-fixed-white">Admin</h6>
+                      <span class="fs-11 op-7 lh-1">Admin</span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex" href="profile.html"><i class="bx bx-user-circle fs-18 me-2 op-7"></i>Profile</a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item d-flex" href="signin.html"><i class="bx bx-log-out fs-18 me-2 op-7"></i>Sign Out</a>
+                </li>
+              </ul>
+            </div>
+            <!-- End::header-element -->
+          </div>
+          <!-- End::header-content-right -->
+        </div>
+        <!-- End::main-header-container -->
+      </header>
+      <!-- /app-header -->
+
+      <!-- Message Modal -->
+      <div class="modal fade" id="chatmodel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-right chatbox" role="document">
+          <div class="modal-content chat border-0">
+            <div class="card overflow-hidden mb-0 border-0 shadow-none">
+              <!-- action-header -->
+              <div class="action-header clearfix">
+                <div class="float-start hidden-xs d-flex">
+                  <div class="avatar avatar-lg rounded-circle me-3">
+                    <img src="{% static 'images/faces/6.jpg' %} " class="rounded-circle user_img" alt="img" />
+                  </div>
+                  <div class="align-items-center mt-2">
+                    <h5 class="text-fixed-white mb-0">Daneil Scott</h5>
+                    <span class="dot-label bg-success"></span><span class="me-3 text-fixed-white">online</span>
+                  </div>
+                </div>
+                <ul class="ah-actions actions align-items-center float-end">
+                  <li class="call-icon">
+                    <a href="" class="d-done d-md-block phone-button" data-bs-toggle="modal" data-bs-target="#audiomodal">
+                      <i class="fe fe-phone"></i>
+                    </a>
+                  </li>
+                  <li class="video-icon">
+                    <a href="" class="d-done d-md-block phone-button" data-bs-toggle="modal" data-bs-target="#videomodal">
+                      <i class="fe fe-video"></i>
+                    </a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="" data-bs-toggle="dropdown" aria-expanded="true">
+                      <i class="fe fe-more-vertical"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li class="dropdown-item"><i class="fa fa-user-circle"></i> View profile</li>
+                      <li class="dropdown-item"><i class="fa fa-users"></i>Add friends</li>
+                      <li class="dropdown-item"><i class="fa fa-plus"></i> Add to group</li>
+                      <li class="dropdown-item"><i class="fa fa-ban"></i> Block</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="" class="" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fe fe-x-circle text-fixed-white"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- action-header end -->
+
+              <!-- card-footer -->
+              <div class="card-footer border-top">
+                <div class="msb-reply d-flex">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Typing...." />
+                    <button type="button" class="btn btn-primary">
+                      <i class="far fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- card-footer end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End modal -->
+
+
+      <!-- Start::app-sidebar -->
+      <aside class="app-sidebar sticky" id="sidebar">
+        <!-- Start::main-sidebar-header -->
+        <div class="main-sidebar-header">
+          <a href="{% url 'home' %}" class="header-logo">
+            <img src="{% static 'images/brand-logos/desktop-logo.png' %} " alt="logo" class="desktop-logo" />
+            <img src="{% static 'images/brand-logos/toggle-logo.png' %} " alt="logo" class="toggle-logo" />
+            <img src="{% static 'images/brand-logos/desktop-white.png' %} " alt="logo" class="desktop-white" />
+            <img src="{% static 'images/brand-logos/toggle-white.png' %} " alt="logo" class="toggle-white" />
+          </a>
+        </div>
+        <!-- End::main-sidebar-header -->
+
+        <!-- Start::main-sidebar -->
+        <div class="main-sidebar" id="sidebar-scroll">
+          <!-- Start::nav -->
+          <nav class="main-menu-container nav nav-pills flex-column sub-open">
+            <div class="slide-left" id="slide-left">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+            </div>
+            <ul class="main-menu">
+              <!-- Start::slide__category -->
+              <li class="slide__category"><span class="category-name">Utama</span></li>
+              <!-- End::slide__category -->
+
+              <!-- Start::slide -->
+              <li class="slide">
+                <a href="{% url 'home' %}" class="side-menu__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3" />
+                    <path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z" />
+                  </svg>
+                  <span class="side-menu__label">Dashboard</span>
+                </a>
+              </li>
+              <!-- End::slide -->
+              <!-- Start::slide__category -->
+              <li class="slide__category"><span class="category-name">Manajemen</span></li>
+              <!-- End::slide__category -->
+
+              <!-- Start::slide -->
+              <li class="slide">
+                <a href="{% url 'home' %}" class="side-menu__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" opacity=".3" />
+                    <path
+                      d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z"
+                    />
+                  </svg>
+                  <span class="side-menu__label">Bidang</span>
+                </a>
+              </li>
+              <!-- End::slide -->
+
+              <!-- Start::slide -->
+              <li class="slide">
+                <a href="{% url 'home' %}" class="side-menu__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M6.26 9L12 13.47 17.74 9 12 4.53z" opacity=".3" />
+                    <path d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z" />
+                  </svg>
+                  <span class="side-menu__label">Jabatan</span>
+                </a>
+              </li>
+              <!-- End::slide -->
+
+              <!-- Start::slide -->
+              <li class="slide">
+                <a href="{% url 'home' %}" class="side-menu__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3" />
+                    <path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
+                  </svg>
+                  <span class="side-menu__label">Taxonomy</span>
+                </a>
+              </li>
+              <!-- End::slide -->
+
+              <!-- Start::slide -->
+              <li class="slide">
+                <a href="{% url 'home' %}" class="side-menu__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="side-menu__icon" viewBox="0 0 24 24">
+                    <g></g>
+                    <g>
+                      <g />
+                      <g>
+                        <path
+                          d="M21,5c-1.11-0.35-2.33-0.5-3.5-0.5c-1.95,0-4.05,0.4-5.5,1.5c-1.45-1.1-3.55-1.5-5.5-1.5S2.45,4.9,1,6v14.65 c0,0.25,0.25,0.5,0.5,0.5c0.1,0,0.15-0.05,0.25-0.05C3.1,20.45,5.05,20,6.5,20c1.95,0,4.05,0.4,5.5,1.5c1.35-0.85,3.8-1.5,5.5-1.5 c1.65,0,3.35,0.3,4.75,1.05c0.1,0.05,0.15,0.05,0.25,0.05c0.25,0,0.5-0.25,0.5-0.5V6C22.4,5.55,21.75,5.25,21,5z M3,18.5V7 c1.1-0.35,2.3-0.5,3.5-0.5c1.34,0,3.13,0.41,4.5,0.99v11.5C9.63,18.41,7.84,18,6.5,18C5.3,18,4.1,18.15,3,18.5z M21,18.5 c-1.1-0.35-2.3-0.5-3.5-0.5c-1.34,0-3.13,0.41-4.5,0.99V7.49c1.37-0.59,3.16-0.99,4.5-0.99c1.2,0,2.4,0.15,3.5,0.5V18.5z"
+                        />
+                        <path d="M11,7.49C9.63,6.91,7.84,6.5,6.5,6.5C5.3,6.5,4.1,6.65,3,7v11.5C4.1,18.15,5.3,18,6.5,18 c1.34,0,3.13,0.41,4.5,0.99V7.49z" opacity=".3" />
+                      </g>
+                      <g>
+                        <path d="M17.5,10.5c0.88,0,1.73,0.09,2.5,0.26V9.24C19.21,9.09,18.36,9,17.5,9c-1.28,0-2.46,0.16-3.5,0.47v1.57 C14.99,10.69,16.18,10.5,17.5,10.5z" />
+                        <path d="M17.5,13.16c0.88,0,1.73,0.09,2.5,0.26V11.9c-0.79-0.15-1.64-0.24-2.5-0.24c-1.28,0-2.46,0.16-3.5,0.47v1.57 C14.99,13.36,16.18,13.16,17.5,13.16z" />
+                        <path d="M17.5,15.83c0.88,0,1.73,0.09,2.5,0.26v-1.52c-0.79-0.15-1.64-0.24-2.5-0.24c-1.28,0-2.46,0.16-3.5,0.47v1.57 C14.99,16.02,16.18,15.83,17.5,15.83z" />
+                      </g>
+                    </g>
+                  </svg>
+                  <span class="side-menu__label">Knowledge</span>
+                </a>
+              </li>
+              <!-- End::slide -->
+            </ul>
+            <div class="slide-right" id="slide-right">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+            </div>
+          </nav>
+          <!-- End::nav -->
+        </div>
+        <!-- End::main-sidebar -->
+      </aside>
+      <!-- End::app-sidebar -->
+      {% block content %}{% endblock content %}
+      <!-- Footer Start -->
+      <footer class="footer mt-auto py-3 bg-white text-center">
+        <div class="container">
+            <span class="text-muted"> Copyright © <span id="year"></span> <a
+                    href="javascript:void(0);" class="text-dark fw-semibold">PLN</a>.
+                Designed with 
+                </a> All
+                rights
+                reserved
+            </span>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    </div>
+
+    <!-- Scroll To Top -->
+    <div class="scrollToTop">
+      <span class="arrow"><i class="las la-angle-double-up"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+    <!-- Scroll To Top -->
+
+    <!-- Popper JS -->
+    <script src="{% static 'libs/@popperjs/core/umd/popper.min.js' %} "></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+    <!-- Defaultmenu JS -->
+    <script src="{% static 'js/defaultmenu.min.js' %} "></script>
+
+    <!-- Node Waves JS-->
+    <script src="{% static 'libs/node-waves/waves.min.js' %} "></script>
+
+    <!-- Sticky JS -->
+    <script src="{% static 'js/sticky.js' %} "></script>
+
+    <!-- Simplebar JS -->
+    <script src="{% static 'libs/simplebar/simplebar.min.js' %} "></script>
+    <script src="{% static 'js/simplebar.js' %} "></script>
+
+    <!-- Color Picker JS -->
+    <script src="{% static 'libs/@simonwep/pickr/pickr.es5.min.js' %} "></script>
+
+    <!-- Apex Charts JS -->
+    <script src="{% static 'libs/apexcharts/apexcharts.min.js' %} "></script>
+
+    <!-- JSVector Maps JS -->
+    <script src="{% static 'libs/jsvectormap/js/jsvectormap.min.js' %}"></script>
+
+    <!-- JSVector Maps MapsJS -->
+    <script src="{% static 'libs/jsvectormap/maps/world-merc.js' %} "></script>
+    <script src="{% static 'js/us-merc-en.js' %} "></script>
+
+    <!-- Chartjs Chart JS -->
+    <script src="{% static 'js/index.js' %} "></script>
+
+    <!-- Custom-Switcher JS -->
+    <script src="{% static 'js/custom-switcher.min.js' %} "></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/custom.js' %} "></script>
+  </body>
+</html>
