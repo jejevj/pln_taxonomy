@@ -24,9 +24,28 @@ SECRET_KEY = 'django-insecure--7^+10_s%09_(d+&*_#+a+d11$n96if9b78lr62jz-^cs6du$5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = [
+    'https://dev-pln-knowledge.azurewebsites.net/',
+    'https://https://dev-pln-knowledge.azurewebsites.net/',
+    'http://https://dev-pln-knowledge.azurewebsites.net/'
+    '*.azurewebsites.net',
+    '*'
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1'
+    'https://https://dev-pln-knowledge.azurewebsites.net/',
+    'http://https://dev-pln-knowledge.azurewebsites.net/'
+]
+CORS_ALLOW_ALL_ORIGINS =True
 
-ALLOWED_HOSTS = ['*','*.azurewebsites.net']
-
+CORS_ALLOWED_ORIGINS =[
+    
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    'https://https://dev-pln-knowledge.azurewebsites.net/',
+    'http://https://dev-pln-knowledge.azurewebsites.net/'
+    
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
