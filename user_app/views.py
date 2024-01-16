@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .models import UserPengguna
+from .forms import UserPenggunaForm
 # Create your views here.
 def depan(request):
     return render(request,'index_user.html')
@@ -20,4 +22,15 @@ def detail_kompetensi(request):
 
 def list_taxonomy(request):
     return render(request,'list_taxonomy.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserPenggunaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirect to login page after successful registration
+    else:
+        form = UserPenggunaForm()
+
+    return render(request, 'register.html', {'form': form})
     

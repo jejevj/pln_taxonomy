@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>PLN Taxonomy - Register</title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template" />
+    <meta name="Author" content="Spruko Technologies Private Limited" />
+    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/brand-logos/favicon.ico' %}" type="image/x-icon" />
+
+    <!-- Main Theme Js -->
+    <script src="{% static 'js/authentication-main.js' %}"></script>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- Style Css -->
+    <link href="{% static 'css/styles.min.css' %}" rel="stylesheet" />
+
+    <!-- Icons Css -->
+    <link href="{% static 'css/icons.min.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container-fluid custom-page">
+      <div class="row bg-white">
+        <!-- The image half -->
+        <div class="col-md-6 col-lg-6 col-xl-6 d-none d-md-flex bg-primary-transparent-3">
+          <div class="row w-100 mx-auto text-center">
+            <div class="col-md-12 col-lg-12 col-xl-12 my-auto mx-auto w-100">
+              <img src="{% static '/images/media/pngs/5.png'%}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo" />
+            </div>
+          </div>
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 col-lg-6 col-xl-6 bg-white py-4">
+          <div class="login d-flex align-items-center py-2">
+            <!-- Demo content-->
+            <div class="container p-0">
+              <div class="row">
+                <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+                  <div class="card-sigin">
+                    <div class="mb-5 d-flex">
+                      <a href="index.html" class="header-logo"
+                        ><img src="{% static '/images/brand-logos/desktop-logo.png'%}" class="desktop-logo ht-40" alt="logo" />
+                        <img src="{% static '/images/brand-logos/desktop-white.png'%}" class="desktop-white ht-40" alt="logo" />
+                      </a>
+                    </div>
+                    <div class="card-sigin">
+                      <div class="main-signup-header">
+                        <h3>Daftar PLN Knowledge</h3>
+                        <form method="post" action="{% url 'register' %}">
+                          {% csrf_token %}
+                          <div class="form-group mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input class="form-control" name="nama_lengkap" placeholder="Masukkan nama lengkap" type="text" required/>
+                          </div>
+                          <div class="form-group mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" name="email" placeholder="Masukkan email" type="email" required/>
+                          </div>
+                          <div class="form-group mb-3">
+                            <label class="form-label">Password</label>
+                            <input class="form-control" name="password" placeholder="Masukkan password" type="password" required/>
+                          </div>
+                          <div class="form-group mb-3">
+                            <label class="form-label">Nomor HP</label>
+                            <input class="form-control" name="nomor_hp" placeholder="Masukkan nomor HP" type="text" required/>
+                          </div>
+                          <div class="form-group mb-3">
+                            <label class="form-label">Alamat</label>
+                            <textarea class="form-control" name="alamat" placeholder="Kecamatan, Kab/Kota, Provinsi"required></textarea>
+                          </div>
+                          <div>Social Media</div>
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group mb-3">
+                                <label class="form-label">GitHub (Opsional)</label>
+                                <input class="form-control" name="github" placeholder="Masukkan URL GitHub" type="url" />
+                              </div>
+                            </div>
+
+                            <div class="col-6">
+                              <div class="form-group mb-3">
+                                <label class="form-label">Twitter (Opsional)</label>
+                                <input class="form-control" name="twitter" placeholder="Masukkan URL Twitter" type="url" />
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group mb-3">
+                                <label class="form-label">LinkedIn (Opsional)</label>
+                                <input class="form-control" name="linkedin" placeholder="Masukkan URL LinkedIn" type="url" />
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group mb-3">
+                                <label class="form-label">Website (Opsional)</label>
+                                <input class="form-control" name="website" placeholder="Masukkan URL Website" type="url" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <button class="btn btn-primary btn-block w-100" type="submit">Daftar</button>
+                        </form>
+                        <div class="main-signin-footer mt-2">
+                          <p>Sudah Punya Akun?<a href="{% url 'login' %}">Masuk</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End -->
+          </div>
+        </div>
+        <!-- End -->
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min'%}"></script>
+  </body>
+</html>

@@ -9,4 +9,5 @@ urlpatterns = [
     path('rekomendasi-kompetensi',rekomendasi_kompetensi,name='rekomendasi-kompetensi'),
     path('detail-kompetensi',detail_kompetensi,name='detail-kompetensi'),
     path('list-taxonomy',list_taxonomy,name='list-taxonomy'),
+    path('register',register,name='register'),
 ]
