@@ -102,7 +102,7 @@
                 <li>
                   <div class="main-header-profile bg-primary menu-header-content text-fixed-white">
                     <div class="my-auto">
-                      <h6 class="mb-0 lh-1 text-fixed-white">Admin</h6>
+                      <h6 class="mb-0 lh-1 text-fixed-white">{{ request.session.nama_lengkap }}</h6>
                       <span class="fs-11 op-7 lh-1">Admin</span>
                     </div>
                   </div>
@@ -112,7 +112,7 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item d-flex" href="{% url 'login' %}"><i class="bx bx-log-out fs-18 me-2 op-7"></i>Sign Out</a>
+                  <a class="dropdown-item d-flex" href="{% url 'logout' %}"><i class="bx bx-log-out fs-18 me-2 op-7"></i>Sign Out</a>
                 </li>
               </ul>
             </div>

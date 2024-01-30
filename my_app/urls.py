@@ -3,6 +3,7 @@ from my_app.views import *
 urlpatterns = [
     path('',home,name="home"),
     path('login',login,name="login"),
+    path('logout',logout,name="logout"),
     # CRUD BIDANG
     path('bidang',bidang,name="bidang"),
     path('tambah-bidang/', tambah_bidang, name='tambah_bidang'),

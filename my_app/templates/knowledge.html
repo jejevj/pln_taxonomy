@@ -36,6 +36,8 @@
                   <td>{{ forloop.counter }}</td>
                   <td>{{ knowledge.judul_knowledge }}</td>
                   <td>{{ knowledge.tipe_knowledge }}</td>
+                  {% comment %} <td>{{ knowledge.konten_knowledge.html|safe }}</td> {% endcomment %}
+
                   <td>{% if knowledge.gambar_unggulan %} {% with file_name=knowledge.gambar_unggulan.path|basename %} 
                     <img src="{% static 'knowledge_images/' %}{{ file_name }}" class="img-fluid" width="100" alt="Gambar Unggulan">
                     {% endwith %} {% else %} Tidak ada gambar {% endif %}</td>

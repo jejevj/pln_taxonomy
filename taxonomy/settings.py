@@ -34,12 +34,13 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1'
     'https://https://dev-pln-knowledge.azurewebsites.net/',
-    'http://https://dev-pln-knowledge.azurewebsites.net/'
+    'https://dev-pln-knowledge.azurewebsites.net/'
+    'https://*.azurewebsites.net/'
 ]
 CORS_ALLOW_ALL_ORIGINS =True
-
+CSRF_COOKIE_SECURE = True  # Jika menggunakan HTTPS
+SECURE_REFERRER_POLICY = 'same-origin'
 CORS_ALLOWED_ORIGINS =[
-    
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     'https://https://dev-pln-knowledge.azurewebsites.net/',
