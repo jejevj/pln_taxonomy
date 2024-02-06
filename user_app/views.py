@@ -25,8 +25,8 @@ def rekomendasi_jabatan(request):
 def rekomendasi_kompetensi(request):
     return render(request,'rekomendasi_kompetensi.html')
 
-def kompetensi(request):
-    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.filter(taxonomy_id=2) #TODO
+def kompetensi(request,id):
+    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.filter(taxonomy_id=id) #TODO
     context = {
         'list_taxonomy':taxonomy_pengetahuan
     }
@@ -50,9 +50,9 @@ def list_taxonomy(request):
         'list_taxonomy':taxonomy
     }
     return render(request,'list_taxonomy.html',context)
-def boiler(request):
-    list_kompetensi = Knowledge.objects.filter(taxonomy_pengetahuan_id=2)
-    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.get(id_taxonomy_pengetahuan=2)
+def boiler(request,id,id2):
+    list_kompetensi = Knowledge.objects.filter(taxonomy_pengetahuan_id=id2)
+    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.get(id_taxonomy_pengetahuan=id)
     context = {
         'list_kompetensi':list_kompetensi,
         'tax_p' : taxonomy_pengetahuan
@@ -71,3 +71,17 @@ def register(request):
 
     return render(request, 'register.html', {'form': form})
     
+def search(request):
+    if request.method == 'GET':
+        pencarian = request.GET.get('pencarian', '')
+        list_knowledge = Knowledge.objects.filter(judul_knowledge__icontains=pencarian)
+        for k in list_knowledge:
+            k.url_gambar = str(k.gambar_unggulan)
+            k.url_gambar = k.url_gambar.replace('mystaticfiles/','')
+            print(k.url_gambar)
+        context = {
+            'knowledge':list_knowledge,
+            'pencarian':pencarian
+        }
+        
+    return render(request,'search.html',context)

@@ -38,13 +38,13 @@
       {% for tax in list_taxonomy %}
       <div class="col-xxl-4 col-xl-6 col-lg-6 col-sm-6">
         <div class="card custom-card card-img-top-1">
-          <a href="{% url 'boiler' %}"><img class="card-img-top w-100 w-100" src="{% static 'images/media/media-70.jpg'%}" alt="" /></a>
+          <a href="{% url 'boiler' id=tax.id_taxonomy_pengetahuan id2=tax.taxonomy.id_taxonomy %}"><img class="card-img-top w-100 w-100" src="{% static 'images/media/media-70.jpg'%}" alt="" /></a>
           <div class="card-body pb-0">
-            <a href="{% url 'boiler' %}"><h4 class="card-title">{{tax.nama_taxonomy_pengetahuan}}</h4></a>
+            <a href="{% url 'boiler' id=tax.id_taxonomy_pengetahuan id2=tax.taxonomy.id_taxonomy%}"><h4 class="card-title">{{tax.nama_taxonomy_pengetahuan}}</h4></a>
             <p class="card-text mb-2">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
           <div class="item7-card-desc d-flex p-3 align-items-center justify-content-center border-top">
-            <a class="btn btn-primary" href="{% url 'boiler' %}">Taksonomi Pengetahuan</a>
+            <a class="btn btn-primary" href="{% url 'boiler' id=tax.id_taxonomy_pengetahuan id2=tax.taxonomy.id_taxonomy %}">Taksonomi Pengetahuan</a>
             <div class="ms-auto">
               <a class="me-0 d-flex" href="javascript:void(0);"
                 ><span class="phone font-weight-semibold text-muted"><span class="fe fe-calendar text-muted me-2 fs-16"></span>Aug 24,2021</span></a

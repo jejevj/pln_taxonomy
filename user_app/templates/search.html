@@ -1,4 +1,4 @@
-{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Taxonomy{% endblock title %} {% block choicejs %}
+{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Kompetensi{% endblock title %} {% block choicejs %}
 <!-- Choices JS -->
 
 <script src="{% static 'libs/choices.js/public/assets/scripts/choices.min.js'%}"></script>
@@ -13,48 +13,43 @@
 <link rel="stylesheet" href="{% static 'libs/@simonwep/pickr/themes/nano.min.css'%}" />
 <!-- Choices Css -->
 <link rel="stylesheet" href="{%static 'libs/choices.js/public/assets/styles/choices.min.css'%}" /> {% endblock choicecss %} {% block content %}
-<!-- Start:: Section-1 -->
-<div class="landing-banner" id="home">
-  <section class="section">
-    <div class="container main-banner-container">
-      <div class="row justify-content-center text-center">
-        <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8">
-          <div class="py-5 pb-lg-0">
-            <div class="mb-3">
-              <h5 class="fw-semibold text-fixed-white op-9">Silahkan Pilih</h5>
+<div class="container mt-5 pt-5">
+  <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="card custom-card">
+        <div class="card-body pb-0">
+          <form method="GET" action='{% url "search" %}'>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="pencarian" placeholder="{{pencarian}}" />
+              <button class="btn ripple btn-primary" type="submit">Search</button>
             </div>
-            <p class="landing-banner-heading mb-3">Proses Bisnis</p>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
-</div>
-<!-- End:: Section-1 -->
-
-<section class="section section-bg">
-  <div class="container mb-5 mt-2">
-    <!--Start::row-2 -->
-
-    <div class="row g-2 justify-content-center">
-      <div class="col-xl-12">
-        <div class="row text-center justify-content-evenly">
-          {% for tax in  list_taxonomy %}
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
-            <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s">
-              <div>
-                <h5 class="fw-bold">{{tax.nama_taxonomy}}</h5>
-                <a href="{% url 'list-kompetensi' id=tax.id_taxonomy %}" class="btn btn-primary">Taksonomi Pengetahuan</a>
-              </div>
+      <!-- Start::row-1 -->
+      <div class="row">
+        {% for k in knowledge %}
+        <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <div class="card custom-card">
+            <img src="{% static k.url_gambar %}" class="card-img-top" alt="Gambar Unggulan" />
+            <div class="card-body">
+              <h6 class="card-title fw-semibold">{{k.judul_knowledge}}</h6>
+              <a href="{% url 'detail-kompetensi' id=k.id_knowledge %}" class="btn btn-primary">Baca Knowledge</a>
+            </div>
+            <div class="card-footer">
+              <span class="card-text">Tanggal: {{k.created_at}}</span>
             </div>
           </div>
-          {% endfor %}
         </div>
+        {% endfor %}
       </div>
+      
     </div>
-
   </div>
-</section>
+  <!--End::row-1 -->
+</div>
+
 {% endblock content %} {% block scriptjs %}
 <!-- Simplebar JS -->
 <script src="{% static 'libs/simplebar/simplebar.min.js'%}"></script>

@@ -14,20 +14,19 @@
                         <p class="landing-banner-heading mb-3">Cari Tahu Sekarang!</p>
                         <div class="fs-16 mb-5 text-fixed-white op-7">Pelajari kebutuhan informasi terkait infrastruktur
                             dan ilmu pengetahuan dibidang kelistrikan!</div>
+                        <form method="GET" action="{% url 'search' %}">
                         <div class="row mb-3 mt-5"> 
                             <div class="col-sm-12">
-                                <div class="input-group"> <input type="email" class="form-control" id="inputEmail1">
+                                <div class="input-group"> <input type="text" class="form-control" name="pencarian">
                                     <div class="input-group-text"> <i class="ri-search-line"></i> </div>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-
-                            <a href="#bidang" class="m-1 btn btn-info col-3 d-flex justify-content-center">
-                                Cari Knowledge
-                                <i class="fe fe-arrow-right ms-2 align-middle"></i>
-                            </a>
+                            <input type="submit" class="m-1 btn btn-info col-3 d-flex justify-content-center" value="Cari Knowledge"/>
                         </div>
+
+                        <form>
                     </div>
                 </div>
             </div>
