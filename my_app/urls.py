@@ -16,6 +16,8 @@ urlpatterns = [
     path('hapus-jabatan/', hapus_jabatan, name='hapus_jabatan'),
     # CRUD TAXONOMY
     path('taxonomy',taxonomy,name="taxonomy"),
+    path('taxonomy-pengetahuan',taxonomy_pengetahuan,name="taxonomy_pengetahuan"),
+    path('tambah-taxonomy-pengetahuan',tambah_taxonomy_pengetahuan,name="tambah_taxonomy_pengetahuan"),
     path('tambah-taxonomy/', tambah_taxonomy, name='tambah_taxonomy'),
     path('edit-taxonomy/', edit_taxonomy, name='edit_taxonomy'),
     path('hapus-taxonomy/', hapus_taxonomy, name='hapus_taxonomy'),

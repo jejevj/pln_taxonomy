@@ -1,4 +1,4 @@
-{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Taxonomy{% endblock title %} {% block choicejs %}
+{% extends "layouts.html" %} {% load static %} {% block title %}Pilih Rekomendasi Bidang{% endblock title %} {% block choicejs %}
 <!-- Choices JS -->
 
 <script src="{% static 'libs/choices.js/public/assets/scripts/choices.min.js'%}"></script>
@@ -20,10 +20,8 @@
       <div class="row justify-content-center text-center">
         <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8">
           <div class="py-5 pb-lg-0">
-            <div class="mb-3">
-              <h5 class="fw-semibold text-fixed-white op-9">Silahkan Pilih</h5>
-            </div>
-            <p class="landing-banner-heading mb-3">Proses Bisnis</p>
+            <div class="mb-3"></div>
+            <p class="landing-banner-heading mb-3">{{tax_p.nama_taxonomy_pengetahuan}}</p>
           </div>
         </div>
       </div>
@@ -34,17 +32,19 @@
 
 <section class="section section-bg">
   <div class="container mb-5 mt-2">
+    <h4 class="text-center">Pilih Bidang Yang Anda Minati</h4>
+
     <!--Start::row-2 -->
 
-    <div class="row g-2 justify-content-center">
+    <div class="row g-2 justify-content-center mt-3">
       <div class="col-xl-12">
         <div class="row text-center justify-content-evenly">
-          {% for tax in  list_taxonomy %}
+          {% for know in list_kompetensi %}
           <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
             <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s">
               <div>
-                <h5 class="fw-bold">Pengembangan visi dan strategi pengelolaan pembangkit</h5>
-                <a href="{% url 'list-kompetensi' %}" class="btn btn-primary">Taksonomi Pengetahuan</a>
+                <h5 class="fw-bold">{{know.judul_knowledge}}</h5>
+                <a href="{% url 'detail-kompetensi' id=know.id_knowledge%}" class="btn btn-primary">Taksonomi Pengetahuan</a>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-
+    <!--End::row-2 -->
   </div>
 </section>
 {% endblock content %} {% block scriptjs %}

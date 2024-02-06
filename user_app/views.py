@@ -4,6 +4,7 @@ from .forms import UserPenggunaForm
 from django.views.decorators.csrf import csrf_exempt
 from user_app.models import *
 from my_app.decorator import *
+from my_app.models import *
 # Create your views here.
 def depan(request):
     return render(request,'index_user.html')
@@ -25,13 +26,38 @@ def rekomendasi_kompetensi(request):
     return render(request,'rekomendasi_kompetensi.html')
 
 def kompetensi(request):
-    return render(request,'kompetensi.html')
+    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.filter(taxonomy_id=2) #TODO
+    context = {
+        'list_taxonomy':taxonomy_pengetahuan
+    }
+    return render(request,'kompetensi.html',context)
 
-def detail_kompetensi(request):
-    return render(request,'detail_kompetensi.html')
+def detail_kompetensi(request,id):
+    knowledge = Knowledge.objects.get(id_knowledge=id)
+    url_gambar= str(knowledge.gambar_unggulan)
+    url_gambar= url_gambar.replace('mystaticfiles/', '')
+        
+    context ={
+        'k':knowledge,
+        'url_gambar':url_gambar
+        
+    }
+    return render(request,'detail_kompetensi.html',context)
 
 def list_taxonomy(request):
-    return render(request,'list_taxonomy.html')
+    taxonomy = Taxonomy.objects.all()
+    context = {
+        'list_taxonomy':taxonomy
+    }
+    return render(request,'list_taxonomy.html',context)
+def boiler(request):
+    list_kompetensi = Knowledge.objects.filter(taxonomy_pengetahuan_id=2)
+    taxonomy_pengetahuan = TaxonomyPengetahuan.objects.get(id_taxonomy_pengetahuan=2)
+    context = {
+        'list_kompetensi':list_kompetensi,
+        'tax_p' : taxonomy_pengetahuan
+    }
+    return render(request,'boiler3.html',context)
 
 @csrf_exempt
 def register(request):

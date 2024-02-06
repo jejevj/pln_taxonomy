@@ -133,7 +133,25 @@ def hapus_jabatan(request):
 def taxonomy(request):
     taxonomy_list = Taxonomy.objects.all()
     return render(request, "taxonomy.html", {'taxonomy_list': taxonomy_list})
+def taxonomy_pengetahuan(request):
+    taxonomy_list = TaxonomyPengetahuan.objects.all()
+    taxonomy_list2 = Taxonomy.objects.all()
+    context = {
+        'list_taxonomy':taxonomy_list,
+        'taxonomy_list':taxonomy_list2
+    }
+    return render(request, "taxonomy_pengetahuan.html",context)
 
+@csrf_exempt
+def tambah_taxonomy_pengetahuan(request):
+    if request.method == 'POST':
+        form = TaxonomyPengetahuanForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('taxonomy_pengetahuan')
+    else:
+        form = TaxonomyForm()
+    return render(request, 'tambah_taxonomy.html', {'form': form})
 
 @csrf_exempt
 def tambah_taxonomy(request):
@@ -195,6 +213,8 @@ def tambah_knowledge(request):
         'bidang_list': Bidang.objects.all(),
         'jabatan_list': Jabatan.objects.all(),
         'taxonomy_list': Taxonomy.objects.all(),
+        'taxonomy_pengetahuan_list': TaxonomyPengetahuan.objects.all(),
+        
     }
 
     return render(request, 'tambah_knowledge.html', context)

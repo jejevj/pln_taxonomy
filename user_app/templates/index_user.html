@@ -1,8 +1,8 @@
 {% extends "layouts.html" %}
 {% block title %}Landing Page{% endblock title %}
 {% block content %}
- <!-- Start:: Section-1 -->
- <div class="landing-banner" id="home">
+<!-- Start:: Section-1 -->
+<div class="landing-banner" id="home">
     <section class="section">
         <div class="container main-banner-container">
             <div class="row justify-content-center text-center">
@@ -12,11 +12,22 @@
                             <h5 class="fw-semibold text-fixed-white op-9">Knowledge Management System</h5>
                         </div>
                         <p class="landing-banner-heading mb-3">Cari Tahu Sekarang!</p>
-                        <div class="fs-16 mb-5 text-fixed-white op-7">elajari kebutuhan informasi terkait infrastruktur dan ilmu pengetahuan dibidang kelistrikan!</div>
-                        <a href="#bidang" class="m-1 btn btn-info">
-                            Get Started
-                            <i class="fe fe-arrow-right ms-2 align-middle"></i>
-                        </a>
+                        <div class="fs-16 mb-5 text-fixed-white op-7">Pelajari kebutuhan informasi terkait infrastruktur
+                            dan ilmu pengetahuan dibidang kelistrikan!</div>
+                        <div class="row mb-3 mt-5"> 
+                            <div class="col-sm-12">
+                                <div class="input-group"> <input type="email" class="form-control" id="inputEmail1">
+                                    <div class="input-group-text"> <i class="ri-search-line"></i> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+
+                            <a href="#bidang" class="m-1 btn btn-info col-3 d-flex justify-content-center">
+                                Cari Knowledge
+                                <i class="fe fe-arrow-right ms-2 align-middle"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,7 +47,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-7">
                 <p class="text-muted fs-15 mb-5 fw-normal">
-                  Berikut adalah bidang-bidang yang dapat kamu pahami!
+                    Berikut adalah bidang-bidang yang dapat kamu pahami!
                 </p>
             </div>
         </div>
@@ -44,56 +55,101 @@
             <div class="col-xl-12">
                 <div class="row justify-content-evenly">
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
-                        <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s"> 
-                            <div class="bg-img mb-2"> 
-                                <img src="https://static.vecteezy.com/system/resources/previews/016/982/547/non_2x/power-plant-icon-design-free-vector.jpg" class="rounded-circle" width="51">
-                            </div> 
-                            <div> 
-                                <h5 class="fw-bold">Pembangkit</h5> 
-                                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Knowledge</a>       
-                            </div> 
+                        <div class="card features main-features main-features-4 p-4 active" data-wow-delay="0.1s">
+                            <div class="bg-img mb-2">
+                                <img src="https://static.vecteezy.com/system/resources/previews/016/982/547/non_2x/power-plant-icon-design-free-vector.jpg"
+                                    class="rounded-circle" width="51">
+                            </div>
+                            <div>
+                                <h5 class="fw-bold">Pembangkit</h5>
+                                <a href="{% url 'list-taxonomy' %}" class="btn btn-primary">Lihat Knowledge</a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
-                        <div class="card features main-features main-features-2 wow p-4"> 
-                            <div class="bg-img mb-2"> 
-                                <img src="https://cdn-icons-png.flaticon.com/512/3029/3029157.png" class="rounded-circle" width="51">
-                               
-                            </div> 
-                            <div> 
+                        <div class="card features main-features main-features-2 wow p-4">
+                            <div class="bg-img mb-2">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3029/3029157.png"
+                                    class="rounded-circle" width="51">
 
-                                <h5 class="fw-bold">Transmisi</h5> 
-                                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Knowledge</a>   
-                              </div> 
-                        </div> 
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
-                        <div class="card features main-features main-features-3 wow p-4"> 
-                            <div class="bg-img mb-2">  
-                                
-                                    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128">
-                                    <circle cx="64" cy="64" r="63.5" fill="#54C0EB"></circle><path fill="#84DBFF" d="M19.2,109c11.5,11.4,27.3,18.5,44.8,18.5c17.5,0,33.3-7.1,44.8-18.5H19.2z"></path>
-                                    <rect width="19.6" height="10.4" x="54.2" y="92.7" fill="#FFF"></rect><rect width="19.6" height="2.3" x="54.2" y="92.7" fill="#E6E9EE"></rect>
-                                    <path fill="#E6E9EE" d="M82.2,109H45.8l0,0c0-3.3,2.7-6,6-6h24.4C79.5,103.1,82.2,105.7,82.2,109L82.2,109z"></path><path fill="#324A5E" d="M103,92.7H25c-2.4,0-4.4-2-4.4-4.4V34.7c0-2.4,2-4.4,4.4-4.4h78c2.4,0,4.4,2,4.4,4.4v53.7   C107.4,90.7,105.4,92.7,103,92.7z"></path><path fill="#FFF" d="M20.6,84v4.4c0,2.4,1.9,4.3,4.3,4.3H103c2.4,0,4.3-1.9,4.3-4.3V84H20.6z"></path><rect width="80.3" height="46.9" x="23.9" y="33.4" fill="#FFF"></rect><circle cx="100.3" cy="88.3" r="2" fill="#FF7058"></circle><circle cx="94.7" cy="88.3" r="2" fill="#4CDBC4"></circle><circle cx="89.1" cy="88.3" r="2" fill="#54C0EB"></circle><rect width="9.7" height="27.7" x="32.3" y="46.7" fill="#ACB3BA"></rect><rect width="9.7" height="15.8" x="45.7" y="58.7" fill="#4CDBC4"></rect><rect width="9.7" height="23.1" x="59.1" y="51.3" fill="#FFD05B"></rect><rect width="9.7" height="35.7" x="72.6" y="38.7" fill="#84DBFF"></rect><rect width="9.7" height="8.1" x="86" y="66.3" fill="#FF7058"></rect>
-                                    </svg> 
-                                    
-                            </div> 
-                            <div> 
-                                <h5 class="fw-bold">Distribusi</h5> 
-                                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Knowledge</a>   
-                            </div> 
+                            </div>
+                            <div>
+
+                                <h5 class="fw-bold">Transmisi</h5>
+                                <a href="{% url 'list-taxonomy' %}" class="btn btn-primary">Lihat Knowledge</a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
-                        <div class="card features main-features main-features-4 wow fadeInUp reveal revealleft p-4"> 
-                            <div class="bg-img mb-2"> 
-                                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128"><circle cx="64" cy="64" r="63.5" fill="#FFD05B"></circle><path fill="#FFF" d="M30,103.8l0-79.7c0-1.8,1.5-3.3,3.3-3.3h50.1l0,11.4c0,1.8,1.5,3.3,3.3,3.3H98l0,68.3   c0,1.8-1.5,3.3-3.3,3.3H33.3C31.5,107.1,30,105.6,30,103.8z"></path><path fill="#E6E9EE" d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4H86.6c-1.8,0-3.3-1.5-3.3-3.3L83.3,20.9z"></path><path fill="#CED5E0" d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4L83.3,20.9z"></path><rect width="54.6" height="2.4" x="36.7" y="50.7" fill="#E6E9EE"></rect><rect width="54.6" height="2.4" x="36.7" y="58.2" fill="#E6E9EE"></rect><rect width="54.6" height="2.4" x="36.7" y="65.8" fill="#E6E9EE"></rect><rect width="54.6" height="2.4" x="36.7" y="73.4" fill="#E6E9EE"></rect><rect width="23.5" height="2.4" x="67.8" y="80.9" fill="#84DBFF"></rect><rect width="23.5" height="2.4" x="67.8" y="88.5" fill="#84DBFF"></rect><rect width="54.6" height="2.4" x="36.7" y="43.1" fill="#E6E9EE"></rect><rect width="29.6" height="2.4" x="36.7" y="35.6" fill="#84DBFF"></rect><path fill="#FF7058" d="M41.1,83.3c-4.4,4.4-4.4,11.5,0,15.9s11.5,4.4,15.9,0c4.4-4.4,4.4-11.5,0-15.9   C52.6,78.9,45.5,78.9,41.1,83.3z M41.9,84.1c3.4-3.4,8.7-3.8,12.6-1.3l-1.6,1.6c-3-1.7-6.9-1.3-9.5,1.2c-2.6,2.6-3,6.5-1.2,9.5   l-1.6,1.6C38.1,92.8,38.5,87.5,41.9,84.1z M43.1,94.3c-1.3-2.5-0.9-5.7,1.2-7.7c2.1-2.1,5.2-2.5,7.7-1.2L43.1,94.3z M54.9,88.2   c1.3,2.5,0.9,5.7-1.2,7.7c-2.1,2.1-5.2,2.5-7.7,1.2L54.9,88.2z M56.1,98.3c-3.4,3.4-8.7,3.8-12.6,1.3l1.6-1.6   c3,1.7,6.9,1.3,9.5-1.2c2.6-2.6,3-6.5,1.2-9.5l1.6-1.6C60,89.6,59.5,94.9,56.1,98.3z"></path>
-                                </svg> 
-                            </div> 
-                            <div> 
-                                <h5 class="fw-bold">Niaga</h5> 
-                                <a href="{% url 'rekomendasi-kompetensi' %}" class="btn btn-primary">Lihat Knowledge</a>   
-                            </div> 
+                        <div class="card features main-features main-features-3 wow p-4">
+                            <div class="bg-img mb-2">
+
+                                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"
+                                    enable-background="new 0 0 128 128" viewBox="0 0 128 128">
+                                    <circle cx="64" cy="64" r="63.5" fill="#54C0EB"></circle>
+                                    <path fill="#84DBFF"
+                                        d="M19.2,109c11.5,11.4,27.3,18.5,44.8,18.5c17.5,0,33.3-7.1,44.8-18.5H19.2z">
+                                    </path>
+                                    <rect width="19.6" height="10.4" x="54.2" y="92.7" fill="#FFF"></rect>
+                                    <rect width="19.6" height="2.3" x="54.2" y="92.7" fill="#E6E9EE"></rect>
+                                    <path fill="#E6E9EE"
+                                        d="M82.2,109H45.8l0,0c0-3.3,2.7-6,6-6h24.4C79.5,103.1,82.2,105.7,82.2,109L82.2,109z">
+                                    </path>
+                                    <path fill="#324A5E"
+                                        d="M103,92.7H25c-2.4,0-4.4-2-4.4-4.4V34.7c0-2.4,2-4.4,4.4-4.4h78c2.4,0,4.4,2,4.4,4.4v53.7   C107.4,90.7,105.4,92.7,103,92.7z">
+                                    </path>
+                                    <path fill="#FFF"
+                                        d="M20.6,84v4.4c0,2.4,1.9,4.3,4.3,4.3H103c2.4,0,4.3-1.9,4.3-4.3V84H20.6z">
+                                    </path>
+                                    <rect width="80.3" height="46.9" x="23.9" y="33.4" fill="#FFF"></rect>
+                                    <circle cx="100.3" cy="88.3" r="2" fill="#FF7058"></circle>
+                                    <circle cx="94.7" cy="88.3" r="2" fill="#4CDBC4"></circle>
+                                    <circle cx="89.1" cy="88.3" r="2" fill="#54C0EB"></circle>
+                                    <rect width="9.7" height="27.7" x="32.3" y="46.7" fill="#ACB3BA"></rect>
+                                    <rect width="9.7" height="15.8" x="45.7" y="58.7" fill="#4CDBC4"></rect>
+                                    <rect width="9.7" height="23.1" x="59.1" y="51.3" fill="#FFD05B"></rect>
+                                    <rect width="9.7" height="35.7" x="72.6" y="38.7" fill="#84DBFF"></rect>
+                                    <rect width="9.7" height="8.1" x="86" y="66.3" fill="#FF7058"></rect>
+                                </svg>
+
+                            </div>
+                            <div>
+                                <h5 class="fw-bold">Distribusi</h5>
+                                <a href="{% url 'list-taxonomy' %}" class="btn btn-primary">Lihat Knowledge</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                        <div class="card features main-features main-features-4 wow fadeInUp reveal revealleft p-4">
+                            <div class="bg-img mb-2">
+                                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"
+                                    enable-background="new 0 0 128 128" viewBox="0 0 128 128">
+                                    <circle cx="64" cy="64" r="63.5" fill="#FFD05B"></circle>
+                                    <path fill="#FFF"
+                                        d="M30,103.8l0-79.7c0-1.8,1.5-3.3,3.3-3.3h50.1l0,11.4c0,1.8,1.5,3.3,3.3,3.3H98l0,68.3   c0,1.8-1.5,3.3-3.3,3.3H33.3C31.5,107.1,30,105.6,30,103.8z">
+                                    </path>
+                                    <path fill="#E6E9EE"
+                                        d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4H86.6c-1.8,0-3.3-1.5-3.3-3.3L83.3,20.9z">
+                                    </path>
+                                    <path fill="#CED5E0" d="M83.3,20.9h11.4c1.8,0,3.3,1.5,3.3,3.3l0,11.4L83.3,20.9z">
+                                    </path>
+                                    <rect width="54.6" height="2.4" x="36.7" y="50.7" fill="#E6E9EE"></rect>
+                                    <rect width="54.6" height="2.4" x="36.7" y="58.2" fill="#E6E9EE"></rect>
+                                    <rect width="54.6" height="2.4" x="36.7" y="65.8" fill="#E6E9EE"></rect>
+                                    <rect width="54.6" height="2.4" x="36.7" y="73.4" fill="#E6E9EE"></rect>
+                                    <rect width="23.5" height="2.4" x="67.8" y="80.9" fill="#84DBFF"></rect>
+                                    <rect width="23.5" height="2.4" x="67.8" y="88.5" fill="#84DBFF"></rect>
+                                    <rect width="54.6" height="2.4" x="36.7" y="43.1" fill="#E6E9EE"></rect>
+                                    <rect width="29.6" height="2.4" x="36.7" y="35.6" fill="#84DBFF"></rect>
+                                    <path fill="#FF7058"
+                                        d="M41.1,83.3c-4.4,4.4-4.4,11.5,0,15.9s11.5,4.4,15.9,0c4.4-4.4,4.4-11.5,0-15.9   C52.6,78.9,45.5,78.9,41.1,83.3z M41.9,84.1c3.4-3.4,8.7-3.8,12.6-1.3l-1.6,1.6c-3-1.7-6.9-1.3-9.5,1.2c-2.6,2.6-3,6.5-1.2,9.5   l-1.6,1.6C38.1,92.8,38.5,87.5,41.9,84.1z M43.1,94.3c-1.3-2.5-0.9-5.7,1.2-7.7c2.1-2.1,5.2-2.5,7.7-1.2L43.1,94.3z M54.9,88.2   c1.3,2.5,0.9,5.7-1.2,7.7c-2.1,2.1-5.2,2.5-7.7,1.2L54.9,88.2z M56.1,98.3c-3.4,3.4-8.7,3.8-12.6,1.3l1.6-1.6   c3,1.7,6.9,1.3,9.5-1.2c2.6-2.6,3-6.5,1.2-9.5l1.6-1.6C60,89.6,59.5,94.9,56.1,98.3z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold">Niaga</h5>
+                                <a href="{% url 'list-taxonomy' %}" class="btn btn-primary">Lihat Knowledge</a>
+                            </div>
                         </div>
                     </div>
                 </div>

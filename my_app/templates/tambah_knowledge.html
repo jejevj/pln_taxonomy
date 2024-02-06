@@ -44,29 +44,37 @@
               <div class="form-group mb-3">
                 <label class="form-label text-dark">Tipe Knowledge</label>
                 <select class="form-control" data-trigger name="tipe_knowledge" id="tipe_knowledge">
-                    <option value="jabatan">By Jabatan</option>
-                    <option value="taxonomy">By Taxonomy</option>
-                </select>                 
-            </div>
-            
-            <div class="form-group mb-3" id="divJabatan">
+                  <option value="jabatan">By Jabatan</option>
+                  <option value="taxonomy">By Taxonomy</option>
+                </select>
+              </div>
+
+              <div class="form-group mb-3" id="divJabatan">
                 <label class="form-label text-dark" id="labelJabatan">Jabatan</label>
                 <select class="form-control" data-trigger name="jabatan" id="jabatan">
-                    {% for jabatan in jabatan_list %}
-                    <option value="{{ jabatan.id_jabatan }}">{{ jabatan.nama_jabatan }}</option>
-                    {% endfor %}
+                  {% for jabatan in jabatan_list %}
+                  <option value="{{ jabatan.id_jabatan }}">{{ jabatan.nama_jabatan }}</option>
+                  {% endfor %}
                 </select>
-            </div>
-            
-            <div class="form-group mb-3" id="divTaxonomy">
+              </div>
+
+              <div class="form-group mb-3" id="divTaxonomy">
                 <label class="form-label text-dark" id="labelTaxonomy">Taxonomy</label>
                 <select class="form-control" data-trigger name="taxonomy" id="taxonomy">
-                    {% for taxonomy in taxonomy_list %}
-                    <option value="{{ taxonomy.id_taxonomy }}">{{ taxonomy.nama_taxonomy }}</option>
-                    {% endfor %}
+                  {% for taxonomy in taxonomy_list %}
+                  <option value="{{ taxonomy.id_taxonomy }}">{{ taxonomy.nama_taxonomy }}</option>
+                  {% endfor %}
                 </select>
-            </div>
-            
+              </div>
+              <div class="form-group mb-3" id="divTaxonomy">
+                <label class="form-label text-dark" id="labelTaxonomyPengetahuan">Taxonomy Pengetahuan</label>
+                <select class="form-control" data-trigger name="taxonomy_pengetahuan" id="taxonomyPengetahuan">
+                  {% for taxonomy in taxonomy_pengetahuan_list %}
+                  <option value="{{ taxonomy.id_taxonomy_pengetahuan }}">{{ taxonomy.nama_taxonomy_pengetahuan }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
               <div class="form-group mb-3">
                 <div class="ql-wrapper ql-wrapper-demo mb-3">
                   <label class="form-label">Konten Knowledge</label>
@@ -74,7 +82,7 @@
                   <a tabindex="0" class="btn btn-outline-primary btn-wave mb-2" role="button" data-bs-toggle="popover" data-bs-placement="right" title="Petunjuk Daftar Isi" data-bs-content="Gunakan tag H2 atau Heading 2 untuk generate daftar isi. Kemudian untuk konten biasa gunakan ukuran normal."
                     >Petunjuk Daftar Isi</a
                   >
-                 
+
                   {{ form.konten_knowledge }}
                 </div>
               </div>
@@ -94,50 +102,53 @@
 <!-- Quill Editor JS -->
 <script src="{% static 'libs/quill/quill.min.js'%}"></script>
 
-
 <!-- Fileupload JS -->
 <script src="{% static 'js/blog-post.js'%}"></script>
 <!-- Custom JS -->
 <script src="{% static 'js/custom.js'%}"></script>
 {% comment %} JS Radio {% endcomment %}
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Sembunyikan label dan select Jabatan serta Taxonomy saat halaman dimuat
-        document.getElementById("labelJabatan").style.display = "none";
-        document.getElementById("jabatan").style.display = "none";
-    
-        document.getElementById("labelTaxonomy").style.display = "none";
-        document.getElementById("taxonomy").style.display = "none";
-    
-        // Fungsi untuk menangani perubahan pada dropdown "Tipe Knowledge"
-        function handleDropdownChange() {
-            var selectedValue = document.getElementById("tipe_knowledge").value;
-    
-            // Sembunyikan label dan select
-            document.getElementById("labelJabatan").style.display = "none";
-            document.getElementById("jabatan").style.display = "none";
-    
-            document.getElementById("labelTaxonomy").style.display = "none";
-            document.getElementById("taxonomy").style.display = "none";
-    
-            // Tampilkan label dan select yang sesuai dengan pilihan dropdown "Tipe Knowledge"
-            if (selectedValue === "jabatan") {
-                document.getElementById("labelJabatan").style.display = "block";
-                document.getElementById("jabatan").style.display = "block";
-            } else if (selectedValue === "taxonomy") {
-                document.getElementById("labelTaxonomy").style.display = "block";
-                document.getElementById("taxonomy").style.display = "block";
-            }
-        }
-    
-        // Tambahkan event listener untuk setiap perubahan pada dropdown "Tipe Knowledge"
-        var dropdownTipeKnowledge = document.getElementById("tipe_knowledge");
-        dropdownTipeKnowledge.addEventListener("change", handleDropdownChange);
-    
-        // Panggil fungsi handleDropdownChange() untuk menetapkan tampilan awal
-        handleDropdownChange();
-    });
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    // Sembunyikan label dan select Jabatan serta Taxonomy saat halaman dimuat
+    document.getElementById("labelJabatan").style.display = "none";
+    document.getElementById("jabatan").style.display = "none";
+
+    document.getElementById("labelTaxonomy").style.display = "none";
+    document.getElementById("taxonomy").style.display = "none";
+
+    // Fungsi untuk menangani perubahan pada dropdown "Tipe Knowledge"
+    function handleDropdownChange() {
+      var selectedValue = document.getElementById("tipe_knowledge").value;
+
+      // Sembunyikan label dan select
+      document.getElementById("labelJabatan").style.display = "none";
+      document.getElementById("jabatan").style.display = "none";
+
+      document.getElementById("labelTaxonomy").style.display = "none";
+      document.getElementById("taxonomy").style.display = "none";
+
+      document.getElementById("labelTaxonomyPengetahuan").style.display = "none";
+      document.getElementById("taxonomyPengetahuan").style.display = "none";
+
+      // Tampilkan label dan select yang sesuai dengan pilihan dropdown "Tipe Knowledge"
+      if (selectedValue === "jabatan") {
+        document.getElementById("labelJabatan").style.display = "block";
+        document.getElementById("jabatan").style.display = "block";
+      } else if (selectedValue === "taxonomy") {
+        document.getElementById("labelTaxonomy").style.display = "block";
+        document.getElementById("taxonomy").style.display = "block";
+        document.getElementById("labelTaxonomyPengetahuan").style.display = "block";
+        document.getElementById("taxonomyPengetahuan").style.display = "block";
+      }
+    }
+
+    // Tambahkan event listener untuk setiap perubahan pada dropdown "Tipe Knowledge"
+    var dropdownTipeKnowledge = document.getElementById("tipe_knowledge");
+    dropdownTipeKnowledge.addEventListener("change", handleDropdownChange);
+
+    // Panggil fungsi handleDropdownChange() untuk menetapkan tampilan awal
+    handleDropdownChange();
+  });
 </script>
 
 {% endblock jstambah %}

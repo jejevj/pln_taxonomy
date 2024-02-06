@@ -27,20 +27,7 @@
           <div class="card-body">
             <ul class="list-group mb-0">
               <li class="d-flex border-0 px-0">
-                <div class="">
-                  <span class="d-block">Tourism</span>
-                </div>
-              </li>
-              <li class="d-flex border-0 px-0">
-                <div class="">
-                  <span class="d-block">Beautician</span>
-                </div>
-              </li>
-              <li class="d-flex border-0 px-0">
-                <div class="">
-                  <span class="d-block">Music</span>
-                </div>
-              </li>
+               
             </ul>
           </div>
         </div>
@@ -95,52 +82,14 @@
       {% comment %} SAMPAI DISINI FIXED {% endcomment %} {% comment %} BAGIAN INI TETAP DAPAT DI SCROLL {% endcomment %}
       <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12">
         <div class="card overflow-hidden">
-       
           <div class="item7-card-img px-4 pt-4">
             <div class="card-title mb-2">
-                <h1>Boiler</h1>
+              <h1>{{k.judul_knowledge}}</h1>
             </div>
             <a href="javascript:void(0);"></a>
-            <img src="{%static 'images/media/media-85.jpg'%}" alt="img" class="cover-image rounded-3 w-100" />
+            <img src="{%static url_gambar%}" alt="img" class="cover-image rounded-3 w-100" />
           </div>
-          <div class="card-body">
-            <a href="javascript:void(0);" class="mt-4"><h5 class="font-weight-semibold text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5></a>
-            <p class="">
-              I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
-              or avoids pleasure itself, because it is pleasure.
-            </p>
-            <p class="mb-0">
-              but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and
-              pain can procure him some great pleasure. To take a trivial example
-            </p>
-            <a href="javascript:void(0);" class="mt-4"><h5 class="font-weight-semibold text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5></a>
-            <p class="">
-              I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
-              or avoids pleasure itself, because it is pleasure.
-            </p>
-            <p class="mb-0">
-              but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and
-              pain can procure him some great pleasure. To take a trivial example
-            </p>
-            <a href="javascript:void(0);" class="mt-4"><h5 class="font-weight-semibold text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5></a>
-            <p class="">
-              I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
-              or avoids pleasure itself, because it is pleasure.
-            </p>
-            <p class="mb-0">
-              but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and
-              pain can procure him some great pleasure. To take a trivial example
-            </p>
-            <a href="javascript:void(0);" class="mt-4"><h5 class="font-weight-semibold text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5></a>
-            <p class="">
-              I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
-              or avoids pleasure itself, because it is pleasure.
-            </p>
-            <p class="mb-0">
-              but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and
-              pain can procure him some great pleasure. To take a trivial example
-            </p>
-          </div>
+          <div class="card-body">{{k.konten_knowledge.html|safe}}</div>
           <div class="card-footer pb-2 pt-2">
             <div class="item7-card-desc d-md-flex">
               <div class="d-flex align-items-center mt-0">
@@ -165,6 +114,41 @@
   </div>
 </section>
 {% endblock content %} {% block scriptjs %}
+<!-- Tambahkan script berikut di bagian bawah dari file HTML Anda -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Cari semua elemen h2 di dalam konten card-body
+      var headings = document.querySelectorAll('.card-body h2');
+  
+      // Buat daftar isi
+      var tocList = document.createElement('ul');
+      tocList.className = 'list-group';
+  
+      // Loop melalui setiap elemen h2
+      headings.forEach(function (heading, index) {
+          // Beri ID unik untuk setiap elemen h2
+          var headingId = 'toc-heading-' + index;
+          heading.id = headingId;
+  
+          // Buat tautan untuk setiap elemen h2
+          var tocLink = document.createElement('a');
+          tocLink.href = '#' + headingId;
+          tocLink.textContent = heading.textContent;
+  
+          // Buat elemen list untuk setiap tautan
+          var tocItem = document.createElement('li');
+          tocItem.className = 'list-group-item';
+          tocItem.appendChild(tocLink);
+  
+          // Tambahkan elemen list ke daftar isi
+          tocList.appendChild(tocItem);
+      });
+  
+      // Sisipkan daftar isi di dalam card-body
+      var tocContainer = document.querySelector('.card-body');
+      tocContainer.insertBefore(tocList, tocContainer.firstChild);
+  });
+  </script>
 <!-- Simplebar JS -->
 <script src="{% static 'libs/simplebar/simplebar.min.js'%}"></script>
 <script src="{% static 'js/simplebar.js'%}"></script>

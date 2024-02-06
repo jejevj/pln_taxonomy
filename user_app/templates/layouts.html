@@ -144,16 +144,16 @@
                                 </a>
                                 <ul class="slide-menu child1">
                                   <li class="slide">
-                                      <a href="{% url 'rekomendasi-kompetensi' %}" class="side-menu__item">Pembangkit</a>
+                                      <a href="{% url 'list-taxonomy' %}" class="side-menu__item">Pembangkit</a>
                                   </li>
                                   <li class="slide">
-                                      <a href="{% url 'rekomendasi-kompetensi' %}" class="side-menu__item">Transmisi</a>
+                                      <a href="{% url 'list-taxonomy' %}" class="side-menu__item">Transmisi</a>
                                   </li>
                                   <li class="slide">
-                                      <a href="{% url 'rekomendasi-kompetensi' %}" class="side-menu__item">Distribusi</a>
+                                      <a href="{% url 'list-taxonomy' %}" class="side-menu__item">Distribusi</a>
                                   </li>
                                   <li class="slide">
-                                      <a href="{% url 'rekomendasi-kompetensi' %}" class="side-menu__item">Niaga</a>
+                                      <a href="{% url 'list-taxonomy' %}" class="side-menu__item">Niaga</a>
                                   </li>
                                     {% comment %} <li class="slide has-sub">
                                         <a href="javascript:void(0);" class="side-menu__item">Level-2
@@ -185,7 +185,11 @@
                         <div class="d-lg-flex d-none">
                             <div class="btn-list d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
                                 {% if request.session.is_login %}
-                                <a href="{% url 'logout' %}" class="btn btn-wave btn-primary">
+                                
+                                <a href="{% url 'profil' %}" class="btn btn-wave btn-primary">
+                                    Profil
+                                </a> 
+                                <a href="{% url 'logout' %}" class="btn btn-wave btn-dark">
                                     Logout
                                 </a> 
                                 {% else %}

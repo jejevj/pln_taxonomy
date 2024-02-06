@@ -4,4 +4,5 @@ from my_app.models import *
 admin.site.register(Bidang)
 admin.site.register(Jabatan)
 admin.site.register(Taxonomy)
+admin.site.register(TaxonomyPengetahuan)
 admin.site.register(Knowledge)
